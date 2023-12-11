@@ -21,7 +21,7 @@ if (isset($_POST['logout'])) {
 $userRole = $_SESSION['role']; // Assuming 'role' is a session variable that stores the user's role
 
 // Define roles that have access to the asset management page
-$allowedRoles = ['Manager', 'Admin'];
+$allowedRoles = ['Manager'];
 
 // Check if the user has the required role
 if (!in_array($userRole, $allowedRoles)) {
@@ -56,17 +56,17 @@ $currentTime = date("Y-m-d H:i:s");
     </form>
 
     <ul>
-        <li><a href="animal/animal.php">Animal Management</a></li>
-        <li><a href="buildings/building.php">Building Management</a></li>
-        <li><a href="enclosures/enclosure.php">Enclosure Management</a></li>
-        <li><a href="species/species.php">Species Management</a></li>
-        <li><a href="revenuesTypes/revenue_types.php">Revenue Types</a></li>
-        <li><a href="revenuesEvents/view_revenue_events.php">Revenue Events</a></li>
-        <li><a href="concession/view_concessions.php">Concession Management</a></li>
-        <li><a href="zooAdmission/view_zoo_admissions.php">Zoo Admission Management</a></li>
-        <li><a href="caresFor/view_cares_for.php">Cares For Management</a></li>
-        <li><a href="animalShows/view_animal_shows.php">Animal Shows</a></li>
-        <li><a href="participatesIN/view_participates_in.php">Participates In Management</a></li>
+        <li><a href="asset_management/animal/view_animals.php">Animal Management</a></li>
+        <li><a href="asset_management/buildings/view_buildings.php">Building Management</a></li>
+        <li><a href="asset_management/enclosures/view_enclosures.php">Enclosure Management</a></li>
+        <li><a href="asset_management/species/view_species.php">Species Management</a></li>
+        <li><a href="asset_management/revenuesTypes/revenue_types.php">Revenue Types</a></li>
+        <li><a href="asset_management/revenuesEvents/view_revenue_events.php">Revenue Events</a></li>
+        <li><a href="asset_management/concession/view_concessions.php">Concession Management</a></li>
+        <li><a href="asset_management/zooAdmission/view_zoo_admissions.php">Zoo Admission Management</a></li>
+        <li><a href="asset_management/caresFor/view_cares_for.php">Cares For Management</a></li>
+        <li><a href="asset_management/animalShows/view_animal_shows.php">Animal Shows</a></li>
+        <li><a href="asset_management/participatesIN/view_participates_in.php">Participates In Management</a></li>
     </ul>
 </body>
 </html>

@@ -33,26 +33,26 @@ if (isset($_POST['logout'])) {
     </form>
 
     <ul>
-        <li><a href="animal/animal.php">Animal Management</a></li>
-        <li><a href="buildings/building.php">Building Management</a></li>
-        <li><a href="enclosures/enclosure.php">Enclosure</a></li>
-        <li><a href="species/species.php">Species</a></li>
-        <li><a href="revenuesTypes/revenue_types.php">RevenueTypes</a></li>
-        <li><a href="revenuesEvents/view_revenue_events.php">RevenueEvents</a></li>
-        <li><a href="animalShows/view_animal_shows.php">Animal Shows</a></li>
-        <li><a href="concession/view_concessions.php">concession</a></li>
-        <li><a href="zooAdmission/view_zoo_admissions.php">zooAdmission</a></li>
-        <li><a href="caresFor/view_cares_for.php">caresFor</a></li>
-        <li><a href="participatesIN/view_participates_in.php">participatesIN</a></li>
-        <li><a href="employees/view_employees.php">view_employees</a></li>
-        <li><a href="hourlyRate/view_hourly_rates.php">view_hourly_rates</a></li>
-        <li><a href="attendance/view_attendance.php">view_attendance</a></li>
-        <li><a href="attractions/view_attractions.php">view_attractions</a></li>
-        <li><a href="reportForm/report_form.php">report_form</a></li>
-        <li><a href="animalPopulationReport/animal_population_report_form.php">animal_report_form</a></li>
-        <li><a href="topAttractions/top_attractions_report_form.php">top_attractions_report_form</a></li>
-        <li><a href="averageRevenue/average_revenue_report_form.php">average_revenue_report_form</a></li>
-        <li><a href="bestDays/best_days_report_form.php">best_days_report_form</a></li>
+        <li><a href="asset_management/animal/view_animals.php">Animal Management</a></li>
+        <li><a href="asset_management/buildings/view_buildings.php">Building Management</a></li>
+        <li><a href="asset_management/enclosures/view_enclosures.php">Enclosure</a></li>
+        <li><a href="asset_management/species/view_species.php">Species</a></li>
+        <li><a href="asset_management/revenuesTypes/revenue_types.php">RevenueTypes</a></li>
+        <li><a href="asset_management/revenuesEvents/view_revenue_events.php">RevenueEvents</a></li>
+        <li><a href="asset_management/animalShows/view_animal_shows.php">Animal Shows</a></li>
+        <li><a href="asset_management/concession/view_concessions.php">concession</a></li>
+        <li><a href="asset_management/zooAdmission/view_zoo_admissions.php">zooAdmission</a></li>
+        <li><a href="asset_management/caresFor/view_cares_for.php">caresFor</a></li>
+        <li><a href="asset_management/participatesIN/view_participates_in.php">participatesIN</a></li>
+        <li><a href="asset_management/employees/view_employees.php">view_employees</a></li>
+        <li><a href="asset_management/hourlyRate/view_hourly_rates.php">view_hourly_rates</a></li>
+        <li><a href="zoo_activity/attendance/view_attendance.php">view_attendance</a></li>
+        <li><a href="zoo_activity/attractions/view_attractions.php">view_attractions</a></li>
+        <li><a href="report_management/reportForm/report_form.php">report_form</a></li>
+        <li><a href="report_management/animalPopulationReport/animal_population_report_form.php">animal_report_form</a></li>
+        <li><a href="report_management/topAttractions/top_attractions_report_form.php">top_attractions_report_form</a></li>
+        <li><a href="report_management/averageRevenue/average_revenue_report_form.php">average_revenue_report_form</a></li>
+        <li><a href="report_management/bestDays/best_days_report_form.php">best_days_report_form</a></li>
         <!-- Add more navigation links for other features -->
     </ul>
 </body>
