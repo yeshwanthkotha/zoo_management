@@ -95,7 +95,6 @@ $result = $conn->query($sql);
                 <td><?php echo htmlspecialchars($row['ConcessionID']); ?></td>
                 <td><?php echo htmlspecialchars($row['ZooAdmissionID']); ?></td>
                 <td>
-                    <a href="view_employee.php?id=<?php echo htmlspecialchars($row['EmployeeID']); ?>">View</a>
                     <a href="update_employee.php?id=<?php echo htmlspecialchars($row['EmployeeID']); ?>">Update</a>
                     <a href="delete_employee.php?id=<?php echo htmlspecialchars($row['EmployeeID']); ?>">Delete</a>
                 </td>

@@ -40,7 +40,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createUser"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create User</title>
     <style>
-        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100px;
+            margin: 10px auto;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+        }
     </style>
 </head>
 <body>

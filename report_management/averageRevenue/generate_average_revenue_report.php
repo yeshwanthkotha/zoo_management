@@ -1,14 +1,59 @@
-<?php
-// Include the common database connection file
-include '../includes/db_connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Average Revenue Report</title>
-    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -23,7 +68,7 @@ include '../includes/db_connection.php';
             // Validate that startDate is before or equal to endDate
             if ($startDate > $endDate) {
                 echo "<p>Error: Start Date should be before or equal to End Date.</p>";
-                echo "<a href='average_revenue_report_form.php'>Back to Report Form</a>";
+                echo "<p><a href='average_revenue_report_form.php'>Back to Report Form</a></p>";
                 exit();
             }
 
@@ -64,11 +109,9 @@ include '../includes/db_connection.php';
             $stmt->execute();
             $result = $stmt->get_result();
 
-            // Display the report
-            echo "<h2>Average Revenue Report for $startDate to $endDate</h2>";
-
             // Check if there are rows in the result set
             if ($result->num_rows > 0) {
+                echo "<h2>Average Revenue Report for $startDate to $endDate</h2>";
                 echo "<table>";
                 echo "<tr><th>Category</th><th>Average Revenue</th></tr>";
 
@@ -81,10 +124,10 @@ include '../includes/db_connection.php';
 
                 echo "</table>";
             } else {
-                echo "<p>No data found for the selected time period.</p>";
+                echo "<h2>No data found for the selected time period.</h2>";
             }
 
-            echo "<a href='average_revenue_report_form.php'>Back to Report Form</a>";
+            echo "<p><a href='average_revenue_report_form.php'>Back to Report Form</a></p>";
 
             $stmt->close();
             $conn->close();
@@ -95,4 +138,3 @@ include '../includes/db_connection.php';
     </div>
 </body>
 </html>
-

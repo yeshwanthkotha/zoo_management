@@ -37,7 +37,6 @@ $speciesSql = "SELECT ID, Name FROM Species";
 $speciesResult = $conn->query($speciesSql);
 
 // Fetch available animal shows for dropdown
-// Fetch available animal shows for dropdown
 $animalShowSql = "SELECT ID FROM AnimalShow";
 $animalShowResult = $conn->query($animalShowSql);
 
@@ -48,6 +47,41 @@ $animalShowResult = $conn->query($animalShowSql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Participates In Relationship</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, input[type="number"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Update Participates In Relationship</h2>
@@ -61,7 +95,7 @@ $animalShowResult = $conn->query($animalShowSql);
                     <?php echo $species['Name']; ?>
                 </option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="newAnimalShowID">New Animal Show:</label>
         <select name="newAnimalShowID" required>
@@ -70,10 +104,10 @@ $animalShowResult = $conn->query($animalShowSql);
                     <?php echo $animalShow['ID']; ?>
                 </option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="newRequired">New Required:</label>
-        <input type="number" name="newRequired" value="<?php echo $row['Reqd']; ?>" required><br>
+        <input type="number" name="newRequired" value="<?php echo $row['Reqd']; ?>" required>
 
         <button type="submit" name="updateParticipatesIn">
             Update Relationship
@@ -83,3 +117,4 @@ $animalShowResult = $conn->query($animalShowSql);
     <a href="view_participates_in.php">Back to Participates In Relationships</a>
 </body>
 </html>
+

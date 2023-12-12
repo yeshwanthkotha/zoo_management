@@ -3,15 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Management and Reporting</title>
+    <title>Daily Zoo Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Management and Reporting</h2>
+    <h2>Daily Zoo Activity</h2>
 
     <ul>
-        <li><a href="revenue_report.php">Revenue Report</a></li>
-        <li><a href="animal_population_report.php">Animal Population Report</a></li>
-        <li><a href="top_attractions_report.php">Top Attractions Report</a></li>
+        <li><a href="attractions.php">Attractions</a></li>
+        <li><a href="concessions.php">Concessions</a></li>
+        <li><a href="attendance.php">Attendance</a></li>
         <!-- Add more links for other functionalities -->
     </ul>
 </body>

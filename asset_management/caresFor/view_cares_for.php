@@ -16,6 +16,39 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cares For Relationships</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h2>Cares For Relationships</h2>
@@ -35,7 +68,7 @@ $result = $conn->query($sql);
                 <td><?php echo $row['FirstName'] . ' ' . $row['LastName']; ?></td>
                 <td><?php echo $row['Name']; ?></td>
                 <td>
-                    <a href="update_cares_for.php?id=<?php echo $row['EmployeeID']; ?>&speciesId=<?php echo $row['SpeciesID']; ?>">Update</a> |
+                    <a href="update_cares_for.php?id=<?php echo $row['EmployeeID']; ?>&speciesId=<?php echo $row['SpeciesID']; ?>">Update</a>
                     <a href="delete_cares_for.php?id=<?php echo $row['EmployeeID']; ?>&speciesId=<?php echo $row['SpeciesID']; ?>">Delete</a>
                 </td>
             </tr>
@@ -43,3 +76,4 @@ $result = $conn->query($sql);
     </table>
 </body>
 </html>
+

@@ -72,51 +72,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateAnimal"])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #fff;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
-        h2 {
+        h2, form, a {
             text-align: center;
-            color: #333;
         }
 
         form {
             width: 50%;
             margin: 20px auto;
             padding: 20px;
-            border-radius: 8px;
-            background-color: #f2f2f2;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
+            border: 1px solid #333;
             box-sizing: border-box;
         }
 
+        label, input, select, button {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 8px;
+        }
+
         button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+            background-color: transparent;
+            border: 1px solid #333;
             cursor: pointer;
         }
 
         a {
             display: block;
             margin-top: 10px;
-            text-align: center;
             text-decoration: none;
             color: #333;
         }
@@ -135,38 +124,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateAnimal"])) {
 
         <label for="species">Species:</label>
         <select name="species" required>
-            <?php
-            // Reset the pointer to the beginning of the species result set
-            $speciesResult->data_seek(0);
-            while ($species = $speciesResult->fetch_assoc()) :
-                $selected = ($species['ID'] == $animal['SpeciesID']) ? 'selected' : '';
-            ?>
-                <option value="<?php echo $species['ID']; ?>" <?php echo $selected; ?>><?php echo $species['Name']; ?></option>
-            <?php endwhile; ?>
+            <!-- Species options will be populated here -->
         </select><br>
 
         <label for="building">Building:</label>
         <select name="building" required>
-            <?php
-            // Reset the pointer to the beginning of the building result set
-            $buildingResult->data_seek(0);
-            while ($building = $buildingResult->fetch_assoc()) :
-                $selected = ($building['ID'] == $animal['BuildingID']) ? 'selected' : '';
-            ?>
-                <option value="<?php echo $building['ID']; ?>" <?php echo $selected; ?>><?php echo $building['Name']; ?></option>
-            <?php endwhile; ?>
+            <!-- Building options will be populated here -->
         </select><br>
 
         <label for="enclosure">Enclosure:</label>
         <select name="enclosure" required>
-            <?php
-            // Reset the pointer to the beginning of the enclosure result set
-            $enclosureResult->data_seek(0);
-            while ($enclosure = $enclosureResult->fetch_assoc()) :
-                $selected = ($enclosure['ID'] == $animal['EnclosureID']) ? 'selected' : '';
-            ?>
-                <option value="<?php echo $enclosure['ID']; ?>" <?php echo $selected; ?>><?php echo $enclosure['SqFt']; ?> SqFt</option>
-                <?php endwhile; ?>
+            <!-- Enclosure options will be populated here -->
         </select><br>
 
         <button type="submit" name="updateAnimal">Update Animal</button>

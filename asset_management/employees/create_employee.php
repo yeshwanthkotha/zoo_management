@@ -78,12 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createEmployee"])) {
 }
 ?>
 
-<!-- ... (rest of the HTML code) ... -->
-
-
-<!-- ... (rest of the HTML code) ... -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,7 +85,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createEmployee"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Employee</title>
     <style>
-        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, input[type="text"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -107,28 +133,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createEmployee"])) {
             <option value="Maintenance">Maintenance</option>
             <option value="Customer Service">Customer Service</option>
             <option value="Ticket Seller">Ticket Seller</option>
-        </select><br>
+        </select>
 
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" required><br>
+        <input type="text" name="firstName" required>
 
         <label for="middleName">Middle Name:</label>
-        <input type="text" name="middleName"><br>
+        <input type="text" name="middleName">
 
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" required><br>
+        <input type="text" name="lastName" required>
 
         <label for="street">Street:</label>
-        <input type="text" name="street" required><br>
+        <input type="text" name="street" required>
 
         <label for="city">City:</label>
-        <input type="text" name="city" required><br>
+        <input type="text" name="city" required>
 
         <label for="state">State:</label>
-        <input type="text" name="state" required><br>
+        <input type="text" name="state" required>
 
         <label for="zip">Zip:</label>
-        <input type="text" name="zip" required><br>
+        <input type="text" name="zip" required>
 
         <label for="superID">Supervisor:</label>
         <select name="superID">
@@ -136,14 +162,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createEmployee"])) {
             <?php while ($employee = $employeesResult->fetch_assoc()) : ?>
                 <option value="<?php echo $employee['EmployeeID']; ?>"><?php echo $employee['FullName']; ?></option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="hourlyRateID">Hourly Rate:</label>
         <select name="hourlyRateID" required>
             <?php while ($hourlyRate = $hourlyRatesResult->fetch_assoc()) : ?>
                 <option value="<?php echo $hourlyRate['ID']; ?>"><?php echo $hourlyRate['HourlyRate']; ?></option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="concessionID">Concession:</label>
         <select name="concessionID">
@@ -151,22 +177,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createEmployee"])) {
             <?php while ($concession = $concessionsResult->fetch_assoc()) : ?>
                 <option value="<?php echo $concession['ID']; ?>"><?php echo $concession['Product']; ?></option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="zooAdmissionID">Zoo Admission:</label>
-    <select name="zooAdmissionID">
-        <option value="">None</option>
-        <?php
-        // Reset the pointer of the result set to the beginning
-        $zooAdmissionsResult->data_seek(0);
-        while ($zooAdmission = $zooAdmissionsResult->fetch_assoc()) : ?>
-            <option value="<?php echo $zooAdmission['ID']; ?>"><?php echo $zooAdmission['ID']; ?></option>
-        <?php endwhile; ?>
-    </select><br>
+        <select name="zooAdmissionID">
+            <option value="">None</option>
+            <?php
+            while ($zooAdmission = $zooAdmissionsResult->fetch_assoc()) :
+                ?>
+                <option value="<?php echo $zooAdmission['ID']; ?>"><?php echo $zooAdmission['ID']; ?></option>
+            <?php endwhile; ?>
+        </select>
 
         <button type="submit" name="createEmployee">Create Employee</button>
     </form>
 
-    <a href="view_employees.php">Back to Employees</a>
+    <a href="employee_list.php">Back to Employee List</a>
 </body>
 </html>

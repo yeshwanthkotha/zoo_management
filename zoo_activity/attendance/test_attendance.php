@@ -48,24 +48,25 @@ $zooAdmissionsResult = $conn->query($zooAdmissionsSql);
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-color: #f5f5f5;
         }
 
         .container {
-            background-color: #fff;
             padding: 20px;
+            text-align: center;
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
 
         h2 {
-            color: #008000;
+            font-size: 24px;
+            color: black;
         }
 
         form {
@@ -75,7 +76,7 @@ $zooAdmissionsResult = $conn->query($zooAdmissionsSql);
         label {
             display: block;
             margin: 10px 0;
-            color: #008000;
+            color: black;
         }
 
         select, input {
@@ -84,41 +85,29 @@ $zooAdmissionsResult = $conn->query($zooAdmissionsSql);
             border: 1px solid #ddd;
             border-radius: 5px;
             width: 100%;
+            color: black;
         }
 
         button {
-            background-color: #008000;
-            color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            color: black;
         }
 
         table {
             width: 100%;
             margin-top: 20px;
             border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #008000;
+            border: 1px solid black; /* Added border to the table */
         }
 
         th, td {
             padding: 10px;
             text-align: left;
-        }
-
-        th {
-            background-color: #008000;
-            color: white;
-        }
-
-        h3 {
-            color: #008000;
-            margin-top: 30px;
+            border: 1px solid black; /* Added border to table cells */
         }
     </style>
 </head>
@@ -138,29 +127,28 @@ $zooAdmissionsResult = $conn->query($zooAdmissionsSql);
             </select><br>
 
             <label for="adultTickets">Adult Tickets:</label>
-            <input type="button" value="-" onclick="decrement('adultTickets')"> 
             <input type="text" name="adultTickets" id="adultTickets" value="0" readonly>
-            <input type="button" value="+" onclick="increment('adultTickets')"><br>
+            <br>
 
             <label for="childTickets">Child Tickets:</label>
-            <input type="button" value="-" onclick="decrement('childTickets')"> 
             <input type="text" name="childTickets" id="childTickets" value="0" readonly>
-            <input type="button" value="+" onclick="increment('childTickets')"><br>
+            <br>
 
             <label for="seniorTickets">Senior Tickets:</label>
-            <input type="button" value="-" onclick="decrement('seniorTickets')"> 
             <input type="text" name="seniorTickets" id="seniorTickets" value="0" readonly>
-            <input type="button" value="+" onclick="increment('seniorTickets')"><br>
+            <br>
 
             <button type="submit" name="checkoutTicket">Checkout Ticket</button>
         </form>
 
         <script>
+            // Function to increment ticket quantity
             function increment(elementId) {
                 var inputElement = document.getElementById(elementId);
                 inputElement.value = parseInt(inputElement.value) + 1;
             }
 
+            // Function to decrement ticket quantity
             function decrement(elementId) {
                 var inputElement = document.getElementById(elementId);
                 var value = parseInt(inputElement.value);
@@ -172,7 +160,7 @@ $zooAdmissionsResult = $conn->query($zooAdmissionsSql);
 
         <!-- Display zoo admissions with attendance and revenue -->
         <h3>Zoo Admissions Information</h3>
-        <table border="1">
+        <table>
             <tr>
                 <th>Admission ID</th>
                 <th>Senior Price</th>
@@ -208,4 +196,3 @@ $zooAdmissionsResult = $conn->query($zooAdmissionsSql);
     </div>
 </body>
 </html>
-

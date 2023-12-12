@@ -54,24 +54,22 @@ $result = $conn->query($sql);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
 
         h2 {
             text-align: center;
-            color: #333;
         }
 
-        a {
+        a.button {
             display: block;
             width: 100px;
-            margin: 2px auto;
+            margin: 10px auto;
             padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
+            text-align: center;
             text-decoration: none;
+            border: 1px solid #333;
             border-radius: 5px;
         }
 
@@ -79,23 +77,17 @@ $result = $conn->query($sql);
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
-            margin-bottom: 30px;
-            background-color: rgba(144, 238, 144, 0.3); /* Light transparent green */
         }
 
         th, td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #333;
         }
 
         th {
-            background-color: #3498db;
+            background-color: #333;
             color: white;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
         }
 
         ul {
@@ -119,7 +111,7 @@ $result = $conn->query($sql);
     <h2>View All Users</h2>
 
     <!-- Create User button -->
-    <a href="create_user.php">Create User</a>
+    <a class="button" href="create_user.php">Create User</a>
 
     <!-- Display users in a table -->
     <table border="1">

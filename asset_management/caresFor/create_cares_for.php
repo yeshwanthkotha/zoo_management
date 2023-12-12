@@ -43,6 +43,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createCaresFor"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Cares For Relationship</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Create Cares For Relationship</h2>
@@ -56,14 +91,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createCaresFor"])) {
                     <?php echo $employee['FirstName'] . ' ' . $employee['LastName']; ?>
                 </option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="speciesID">Species:</label>
         <select name="speciesID" required>
             <?php while ($species = $speciesResult->fetch_assoc()) : ?>
                 <option value="<?php echo $species['ID']; ?>"><?php echo $species['Name']; ?></option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <button type="submit" name="createCaresFor">Create Relationship</button>
     </form>
@@ -71,3 +106,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createCaresFor"])) {
     <a href="view_cares_for.php">Back to Cares For Relationships</a>
 </body>
 </html>
+

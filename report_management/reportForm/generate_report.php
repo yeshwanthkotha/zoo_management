@@ -11,33 +11,50 @@ include '../includes/db_connection.php';
     <title>Revenue Report</title>
     <style>
         body {
-                        background-color: rgba(0, 128, 0, 0.2); /* Transparent green background */
-                        padding: 20px;
-                    }
-                    h2 {
-                        color: #008000; /* Green text */
-                    }
-                    table {
-                        border: 1px solid #008000; /* Green border */
-                        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-                        width: 100%;
-                        margin-top: 20px;
-                        margin-bottom: 20px;
-                    }
-                    table th, table td {
-                        padding: 10px;
-                        text-align: left;
-                        border: 1px solid #008000; /* Green border */
-                    }
-                    p {
-                        color: #008000; /* Green text */
-                    }
-                    a {
-                        color: #008000; /* Green text */
-                        text-decoration: none;
-                        font-weight: bold;
-                        margin-right: 20px;
-                    }
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #000; /* Black text */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #000; /* Black border */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            color: #000; /* Black text */
+        }
+
+        a {
+            color: #000; /* Black text */
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>

@@ -7,21 +7,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            text-align: center;
         }
 
         h2 {
-            text-align: center;
-            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
         form {
             max-width: 400px;
-            margin: 20px auto;
-            background-color: #fff;
+            margin: 0 auto;
             padding: 20px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -29,7 +29,6 @@
         label {
             display: block;
             margin-bottom: 10px;
-            color: #333;
         }
 
         input {
@@ -40,12 +39,20 @@
         }
 
         button {
-            background-color: #3498db;
+            background-color: #333;
             color: #fff;
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -59,6 +66,6 @@
         <button type="submit" name="generateTopDaysReport">Generate Report</button>
     </form>
 
-    <p><a href="index.php">Back to Home</a></p>
+    <a href="index.php">Back to Home</a>
 </body>
 </html>

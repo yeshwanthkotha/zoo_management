@@ -16,6 +16,47 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Participates In Relationships</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h2>Participates In Relationships</h2>
@@ -23,7 +64,7 @@ $result = $conn->query($sql);
     <a href="create_participates_in.php">Create New Relationship</a>
 
     <!-- Display a paginated list of Participates In relationships with links to update and delete -->
-    <table border="1">
+    <table>
         <tr>
             <th>Species ID</th>
             <th>Animal Show ID</th>
@@ -37,7 +78,7 @@ $result = $conn->query($sql);
                 <td><?php echo $row['AnimalShowID']; ?></td>
                 <td><?php echo $row['Reqd']; ?></td>
                 <td>
-                    <a href="update_participates_in.php?speciesId=<?php echo $row['SpeciesID']; ?>&animalShowId=<?php echo $row['AnimalShowID']; ?>">Update</a> |
+                    <a href="update_participates_in.php?speciesId=<?php echo $row['SpeciesID']; ?>&animalShowId=<?php echo $row['AnimalShowID']; ?>">Update</a>
                     <a href="delete_participates_in.php?speciesId=<?php echo $row['SpeciesID']; ?>&animalShowId=<?php echo $row['AnimalShowID']; ?>">Delete</a>
                 </td>
             </tr>
@@ -45,3 +86,4 @@ $result = $conn->query($sql);
     </table>
 </body>
 </html>
+

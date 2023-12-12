@@ -43,73 +43,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateSpecies"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Styles remain unchanged for brevity -->
-</head>
-<body>
-    <h2>Update Species</h2>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Species</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-        }
-
-        h2 {
-            text-align: center;
+            padding: 20px;
+            background-color: #fff;
             color: #333;
         }
 
-        form {
-            width: 50%;
-            margin: 20px auto;
-            background-color: rgba(144, 238, 144, 0.3);
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 8px;
+            border: 1px solid #333;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        input, select {
+        input, button {
             width: 100%;
             padding: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+            background-color: transparent;
+            border: 1px solid #333;
             cursor: pointer;
+            margin-top: 15px;
         }
 
-        a {
-            display: block;
-            margin-top: 10px;
+        .back-link {
             text-align: center;
-            text-decoration: none;
-            color: #333;
+            margin-top: 20px;
         }
 
+        .back-link a {
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
     </style>
-    <form method="post" action="">
-        <label for="name">Name:</label>
-        <input type="text" name="name" value="<?php echo $species['Name']; ?>" required><br>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Update Species</h2>
+        </div>
 
-        <label for="foodCost">Food Cost:</label>
-        <input type="number" name="foodCost" value="<?php echo $species['FoodCost']; ?>" required><br>
+        <!-- Species update form -->
+        <form method="post" action="">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" value="<?php echo htmlspecialchars($species['Name']); ?>" required>
+            </div>
 
-        <button type="submit" name="updateSpecies">Update Species</button>
-    </form>
+            <div class="form-group">
+                <label for="foodCost">Food Cost:</label>
+                <input type="number" name="foodCost" value="<?php echo htmlspecialchars($species['FoodCost']); ?>" required>
+            </div>
 
-    <a href="view_species.php">Back to Species</a>
+            <button type="submit" name="updateSpecies">Update Species</button>
+        </form>
+
+        <div class="back-link">
+            <a href="view_species.php">Back to Species</a>
+        </div>
+    </div>
 </body>
 </html>

@@ -16,6 +16,9 @@ if ($_SESSION['role'] !== 'Admin') {
 // Include the common database connection file
 include 'db_connection.php';
 
+// Initialize the $user variable
+$user = null;
+
 // Fetch user details based on the provided username
 if (isset($_GET['username'])) {
     $username = $_GET['username'];
@@ -24,7 +27,15 @@ if (isset($_GET['username'])) {
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+    
+    // Check if a user was found
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+    } else {
+        echo "User not found.";
+        exit();
+    }
+    
     $stmt->close();
 } else {
     echo "Username not provided.";
@@ -44,6 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateUser"])) {
     echo "User role updated successfully.";
 }
 
+// Close the database connection
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateUser"])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: rgba(144, 238, 144, 0.3); /* Light transparent green background */
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
@@ -67,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateUser"])) {
 
         p {
             color: #555;
+            text-align: center;
         }
 
         form {
@@ -76,6 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateUser"])) {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 50%;
             margin: 20px auto; /* Center the form horizontally */
+            text-align: center;
         }
 
         label {
@@ -94,16 +109,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateUser"])) {
         }
 
         button {
-            background-color: #4caf50;
-            color: white;
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #333;
             padding: 10px 15px;
-            border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #333;
+            color: #fff;
         }
 
         ul {
@@ -124,17 +141,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateUser"])) {
     </style>
 </head>
 <body>
-    <h2>Edit User - <?= $user['Username']; ?></h2>
+    <h2>Edit User - <?= isset($user) ? $user['Username'] : ''; ?></h2>
 
     <!-- Display user details and form for updating role -->
-    <p>Current Role: <?= $user['Role']; ?></p>
+    <p>Current Role: <?= isset($user) ? $user['Role'] : ''; ?></p>
     
     <form method="post" action="">
         <label for="role">Select New Role:</label>
         <select name="role" id="role">
-            <option value="Admin" <?= ($user['Role'] === 'Admin') ? 'selected' : ''; ?>>Admin</option>
-            <option value="User" <?= ($user['Role'] === 'User') ? 'selected' : ''; ?>>User</option>
-            <option value="Manager" <?= ($user['Role'] === 'Manager') ? 'selected' : ''; ?>>Manager</option>
+            <option value="Admin" <?= (isset($user) && $user['Role'] === 'Admin') ? 'selected' : ''; ?>>Admin</option>
+            <option value="User" <?= (isset($user) && $user['Role'] === 'User') ? 'selected' : ''; ?>>User</option>
+            <option value="Manager" <?= (isset($user) && $user['Role'] === 'Manager') ? 'selected' : ''; ?>>Manager</option>
             <!-- Add more options if needed -->
         </select>
         <button type="submit" name="updateUser">Update Role</button>

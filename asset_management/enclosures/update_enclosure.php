@@ -2,6 +2,10 @@
 // Include the common database connection file
 include '../includes/db_connection.php';
 
+$enclosureId = '';
+$buildingId = '';
+$sqFt = '';
+
 // Check if enclosure ID is provided in the URL
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $enclosureId = $_GET['id'];
@@ -27,6 +31,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     echo "Invalid enclosure ID.";
     exit();
 }
+
+// Fetch available buildings for dropdown
+$buildingSql = "SELECT ID, Name FROM Building";
+$buildingResult = $conn->query($buildingSql);
 
 // Handle enclosure update form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEnclosure"])) {
@@ -57,81 +65,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEnclosure"])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-        }
-
-        h2 {
-            text-align: center;
+            padding: 20px;
+            background-color: #fff;
             color: #333;
         }
 
-        form {
-            width: 50%;
-            margin: 20px auto;
-            background-color: rgba(144, 238, 144, 0.3);
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 8px;
+            border: 1px solid #333;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        input, select {
+        input, select, button {
             width: 100%;
             padding: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+            background-color: transparent;
+            border: 1px solid #333;
             cursor: pointer;
+            margin-top: 15px;
         }
 
-        a {
-            display: block;
-            margin-top: 10px;
+        .back-link {
             text-align: center;
-            text-decoration: none;
-            color: #333;
+            margin-top: 20px;
         }
 
+        .back-link a {
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
-    <h2>Update Enclosure</h2>
+    <div class="container">
+        <div class="header">
+            <h2>Update Enclosure</h2>
+        </div>
 
-    <!-- Enclosure update form -->
-    <form method="post" action="">
-        <label for="buildingId">Building:</label>
-        <select name="buildingId" required>
-            <?php
-            // Fetch available buildings for dropdown
-            $buildingSql = "SELECT ID, Name FROM Building";
-            $buildingResult = $conn->query($buildingSql);
+        <!-- Enclosure update form -->
+        <form method="post" action="">
+            <div class="form-group">
+                <label for="buildingId">Building:</label>
+                <select name="buildingId" required>
+                    <?php while ($building = $buildingResult->fetch_assoc()) : ?>
+                        <option value="<?php echo $building['ID']; ?>" <?php echo ($building['ID'] == $buildingId) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($building['Name']); ?>
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
 
-            while ($building = $buildingResult->fetch_assoc()) :
-                $selected = ($building['ID'] == $buildingId) ? 'selected' : '';
-            ?>
-                <option value="<?php echo $building['ID']; ?>" <?php echo $selected; ?>><?php echo $building['Name']; ?></option>
-            <?php endwhile; ?>
-        </select><br>
+            <div class="form-group">
+                <label for="sqFt">Square Footage:</label>
+                <input type="number" name="sqFt" value="<?php echo htmlspecialchars($sqFt); ?>" required>
+            </div>
 
-        <label for="sqFt">Square Footage:</label>
-        <input type="number" name="sqFt" value="<?php echo $sqFt; ?>" required><br>
+            <button type="submit" name="updateEnclosure">Update Enclosure</button>
+        </form>
 
-        <button type="submit" name="updateEnclosure">Update Enclosure</button>
-    </form>
-
-    <a href="view_enclosures.php">Back to Enclosures</a>
+        <div class="back-link">
+            <a href="view_enclosures.php">Back to Enclosures</a>
+        </div>
+    </div>
 </body>
 </html>

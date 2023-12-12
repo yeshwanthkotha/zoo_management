@@ -28,25 +28,18 @@ $concessionsResult = $conn->query($concessionsSql);
     <title>Daily Concession Revenue</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 0;
             text-align: center;
         }
 
+        .container {
+            padding: 20px;
+        }
+
         h2 {
-            color: #008000;
+            font-size: 24px;
         }
 
         form {
@@ -56,20 +49,17 @@ $concessionsResult = $conn->query($concessionsSql);
         label {
             display: block;
             margin: 10px 0;
-            color: #008000;
         }
 
         select, input {
             padding: 10px;
             margin: 5px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
             width: 100%;
         }
 
         button {
-            background-color: #008000;
-            color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -84,7 +74,7 @@ $concessionsResult = $conn->query($concessionsSql);
         }
 
         table, th, td {
-            border: 1px solid #008000;
+            border: 1px solid #ccc;
         }
 
         th, td {
@@ -92,15 +82,6 @@ $concessionsResult = $conn->query($concessionsSql);
             text-align: left;
         }
 
-        th {
-            background-color: #008000;
-            color: white;
-        }
-
-        h3 {
-            color: #008000;
-            margin-top: 30px;
-        }
     </style>
 </head>
 <body>

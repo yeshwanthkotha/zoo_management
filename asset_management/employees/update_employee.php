@@ -94,6 +94,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Update Employee</h2>
@@ -103,37 +138,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
         <!-- Fetch available employees for dropdown -->
 
         <?php if (!empty($existingData)) : ?>
-            <!-- Debugging: Print values for HourlyRateID, ConcessionID, and ZooAdmissionID -->
-            <!-- <?php
-            echo "HourlyRateID: " . $existingData['HourlyRateID'] . "<br>";
-            echo "ConcessionID: " . $existingData['ConcessionID'] . "<br>";
-            echo "ZooAdmissionID: " . $existingData['ZooAdmissionID'] . "<br>";
-            ?> -->
-
             <!-- Add input fields for existing employee details -->
             <label for="newJobType">Existing Job Type:</label>
-            <input type="text" name="newJobType" value="<?php echo $existingData['JobType']; ?>" required><br>
+            <input type="text" name="newJobType" value="<?php echo $existingData['JobType']; ?>" required>
 
             <label for="newFirstName">Existing First Name:</label>
-            <input type="text" name="newFirstName" value="<?php echo $existingData['FirstName']; ?>" required><br>
+            <input type="text" name="newFirstName" value="<?php echo $existingData['FirstName']; ?>" required>
 
             <label for="newMiddleName">Existing Middle Name:</label>
-            <input type="text" name="newMiddleName" value="<?php echo $existingData['MiddleName']; ?>"><br>
+            <input type="text" name="newMiddleName" value="<?php echo $existingData['MiddleName']; ?>">
 
             <label for="newLastName">Existing Last Name:</label>
-            <input type="text" name="newLastName" value="<?php echo $existingData['LastName']; ?>" required><br>
+            <input type="text" name="newLastName" value="<?php echo $existingData['LastName']; ?>" required>
 
             <label for="newStreet">Existing Street:</label>
-            <input type="text" name="newStreet" value="<?php echo $existingData['Street']; ?>" required><br>
+            <input type="text" name="newStreet" value="<?php echo $existingData['Street']; ?>" required>
 
             <label for="newCity">Existing City:</label>
-            <input type="text" name="newCity" value="<?php echo $existingData['City']; ?>" required><br>
+            <input type="text" name="newCity" value="<?php echo $existingData['City']; ?>" required>
 
             <label for="newState">Existing State:</label>
-            <input type="text" name="newState" value="<?php echo $existingData['State']; ?>" required><br>
+            <input type="text" name="newState" value="<?php echo $existingData['State']; ?>" required>
 
             <label for="newZip">Existing Zip:</label>
-            <input type="text" name="newZip" value="<?php echo $existingData['Zip']; ?>" required><br>
+            <input type="text" name="newZip" value="<?php echo $existingData['Zip']; ?>" required>
 
             <label for="newSuperID">Existing Supervisor:</label>
             <select name="newSuperID">
@@ -144,9 +172,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
                         <?php echo $employee['FullName']; ?>
                     </option>
                 <?php endwhile; ?>
-            </select><br>
+            </select>
 
-            <!-- Uncomment and adjust as needed -->
             <label for="newHourlyRateID">Existing Hourly Rate:</label>
             <select name="newHourlyRateID" required>
                 <?php $hourlyRatesResult->data_seek(0); ?>
@@ -155,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
                         <?php echo $hourlyRate['HourlyRate']; ?>
                     </option>
                 <?php endwhile; ?>
-            </select><br>
+            </select>
 
             <label for="newConcessionID">Existing Concession:</label>
             <select name="newConcessionID">
@@ -166,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
                         <?php echo $concession['Product']; ?>
                     </option>
                 <?php endwhile; ?>
-            </select><br>
+            </select>
 
             <label for="newZooAdmissionID">Existing Zoo Admission:</label>
             <select name="newZooAdmissionID">
@@ -177,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
                         <?php echo $zooAdmission['ID']; ?>
                     </option>
                 <?php endwhile; ?>
-            </select><br>
+            </select>
 
         <?php endif; ?>
 
@@ -187,3 +214,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEmployee"])) {
     <a href="view_employees.php">Back to Employees</a>
 </body>
 </html>
+

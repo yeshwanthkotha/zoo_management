@@ -92,4 +92,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createAttendance"])) {
     <a href="view_attendance.php">Back to Attendance</a>
 </body>
 </html>
-

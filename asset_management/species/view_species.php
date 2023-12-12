@@ -51,7 +51,6 @@ $result = $conn->query($sql);
                 <td><?php echo $species['FoodCost']; ?></td>
                 <td><?php echo isset($species['updated_date']) ? $species['updated_date'] : 'Not Available'; ?></td>
                 <td>
-                    <a href="view_specie.php?id=<?php echo $species['ID']; ?>">View</a>
                     <a href="update_species.php?id=<?php echo $species['ID']; ?>">Update</a>
                     <?php if ($_SESSION['role'] === 'Admin') : ?>
                         <a href="delete_species.php?id=<?php echo $species['ID']; ?>">Delete</a>

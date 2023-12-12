@@ -41,24 +41,67 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Revenue Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            background-color: transparent;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h2>Update Revenue Event</h2>
+    <div class="container">
+        <h2>Update Revenue Event</h2>
 
-    <!-- Revenue event update form -->
-    <form method="post" action="">
-        <label for="dateTime">Date and Time:</label>
-        <input type="datetime-local" name="dateTime" value="<?php echo date('Y-m-d\TH:i', strtotime($revenueEvent['DateTime'])); ?>" required><br>
+        <!-- Revenue event update form -->
+        <form method="post" action="">
+            <label for="dateTime">Date and Time:</label>
+            <input type="datetime-local" name="dateTime" value="<?php echo date('Y-m-d\TH:i', strtotime($revenueEvent['DateTime'])); ?>" required><br>
 
-        <label for="revenue">Revenue:</label>
-        <input type="number" name="revenue" value="<?php echo $revenueEvent['Revenue']; ?>" required><br>
+            <label for="revenue">Revenue:</label>
+            <input type="number" name="revenue" value="<?php echo $revenueEvent['Revenue']; ?>" required><br>
 
-        <label for="ticketsSold">Tickets Sold:</label>
-        <input type="number" name="ticketsSold" value="<?php echo $revenueEvent['TicketsSold']; ?>" required><br>
+            <label for="ticketsSold">Tickets Sold:</label>
+            <input type="number" name="ticketsSold" value="<?php echo $revenueEvent['TicketsSold']; ?>" required><br>
 
-        <button type="submit" name="updateRevenueEvent">Update Revenue Event</button>
-    </form>
+            <button type="submit" name="updateRevenueEvent">Update Revenue Event</button>
+        </form>
 
-    <a href="view_revenue_events.php">Back to Revenue Events</a>
+        <a href="view_revenue_events.php">Back to Revenue Events</a>
+    </div>
 </body>
 </html>
+

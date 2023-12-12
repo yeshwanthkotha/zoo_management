@@ -4,9 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Days Revenue Report</title>
-    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <h2>Top Days Revenue Report</h2>
+
     <div class="container">
         <?php
         // Include the database connection file
@@ -53,7 +97,6 @@
             $result = $conn->query($sql2);
 
             if ($result->num_rows > 0) {
-                echo "<h2>Top Days Revenue Report for $selectedMonth</h2>";
                 echo "<table>";
                 echo "<tr><th>Date</th><th>Total Revenue</th></tr>";
 

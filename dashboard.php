@@ -32,125 +32,111 @@ if (isset($_POST['logout'])) {
     <title>Admin Dashboard</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         h1 {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            margin: 0;
-            text-align: center;
+            text-align: left;
+            margin: 10px 20px;
         }
 
-        form {
-            text-align: center;
-            margin: 15px 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
 
-        button {
-            background-color: #333;
-            color: #fff;
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .button-link {
+            display: block;
             padding: 8px 15px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #333;
+            background: transparent;
+            text-align: left;
         }
 
-        button:hover {
-            background-color: #555;
-        }
-
-        p {
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        li {
-            flex: 1 1 300px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        li:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        .button-link:hover {
+            background-color: #f4f4f4;
         }
 
         a {
             text-decoration: none;
             color: #333;
-            font-weight: bold;
         }
 
-        .section-title {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
+        .logout-form, .view-users {
+            text-align: left;
+            margin: 0 20px;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: 1px solid #333;
+            background: transparent;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h1>Admin Dashboard</h1>
 
-    <!-- Logout form -->
-    <form method="post" action="">
-        <button type="submit" name="logout">Logout</button>
-    </form>
+    <div class="logout-form">
+        <form method="post" action="">
+            <button type="submit" name="logout">Logout</button>
+        </form>
+    </div>
 
-    <!-- View Users link -->
-    <p><a href="view_users.php">View All Users</a></p>
+    <div class="view-users">
+        <p><a href="view_users.php">View All Users</a></p>
+    </div>
 
-    <!-- Assets Management -->
-    <div class="section-title">Assets Management</div>
-    <ul>
-    <li><a href="asset_management/animal/view_animals.php">Animal Management</a></li>
-        <li><a href="asset_management/buildings/view_buildings.php">Building Management</a></li>
-        <li><a href="asset_management/enclosures/view_enclosures.php">Enclosure</a></li>
-        <li><a href="asset_management/species/view_species.php">Species</a></li>
-        <li><a href="asset_management/revenuesTypes/revenue_types.php">RevenueTypes</a></li>
-        <li><a href="asset_management/revenuesEvents/view_revenue_events.php">RevenueEvents</a></li>
-        <li><a href="asset_management/animalShows/view_animal_shows.php">Animal Shows</a></li>
-        <li><a href="asset_management/concession/view_concessions.php">concession</a></li>
-        <li><a href="asset_management/zooAdmission/view_zoo_admissions.php">zooAdmission</a></li>
-        <li><a href="asset_management/caresFor/view_cares_for.php">caresFor</a></li>
-        <li><a href="asset_management/participatesIN/view_participates_in.php">participatesIN</a></li>
-        <li><a href="asset_management/employees/view_employees.php">view_employees</a></li>
-        <li><a href="asset_management/hourlyRate/view_hourly_rates.php">view_hourly_rates</a></li>
-    </ul>
-
-    <!-- Zoo Activity -->
-    <div class="section-title">Zoo Activity</div>
-    <ul>
-    <li><a href="zoo_activity/attendance/test_attendance.php">view_Zoo_attendance</a></li>
-        <li><a href="zoo_activity/attractions/test_attraction.php">view_attractions</a></li>
-        <li><a href="asset_management/concession/sales_concession.php">view_concession_sales</a></li>
-    </ul>
-
-    <!-- Report Management -->
-    <div class="section-title">Report Management</div>
-    <ul>
-    <li><a href="report_management/reportForm/report_form.php">report_form</a></li>
-        <li><a href="report_management/animalPopulationReport/animal_population_report_form.php">animal_report_form</a></li>
-        <li><a href="report_management/topAttractions/top_attractions_report_form.php">top_attractions_report_form</a></li>
-        <li><a href="report_management/averageRevenue/average_revenue_report_form.php">average_revenue_report_form</a></li>
-        <li><a href="report_management/bestDays/best_days_report_form.php">best_days_report_form</a></li>
-    </ul>
+    <table>
+        <tr>
+            <th>Assets Management</th>
+            <th>Zoo Activity</th>
+            <th>Report Management</th>
+        </tr>
+        <tr>
+            <td>
+                <button class="button-link" onclick="window.location.href='asset_management/animal/view_animals.php'">Animal Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/buildings/view_buildings.php'">Building Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/enclosures/view_enclosures.php'">Enclosure Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/species/view_species.php'">Species Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/revenuesTypes/revenue_types.php'">Revenue Types</button>
+                <button class="button-link" onclick="window.location.href='asset_management/revenuesEvents/view_revenue_events.php'">Revenue Events</button>
+                <button class="button-link" onclick="window.location.href='asset_management/animalShows/view_animal_shows.php'">Animal Shows</button>
+                <button class="button-link" onclick="window.location.href='asset_management/concession/view_concessions.php'">Concession Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/zooAdmission/view_zoo_admissions.php'">Zoo Admission</button>
+                <button class="button-link" onclick="window.location.href='asset_management/caresFor/view_cares_for.php'">Cares For</button>
+                <button class="button-link" onclick="window.location.href='asset_management/participatesIN/view_participates_in.php'">Participates In</button>
+                <button class="button-link" onclick="window.location.href='asset_management/employees/view_employees.php'">Employee Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/hourlyRate/view_hourly_rates.php'">Hourly Rates</button>
+            </td>
+            <td>
+                <button class="button-link" onclick="window.location.href='zoo_activity/attendance/test_attendance.php'">Zoo Attendance</button>
+                <button class="button-link" onclick="window.location.href='zoo_activity/attractions/test_attraction.php'">Attractions Management</button>
+                <button class="button-link" onclick="window.location.href='asset_management/concession/sales_concession.php'">Concession Sales</button>
+            </td>
+            <td>
+                <button class="button-link" onclick="window.location.href='report_management/reportForm/report_form.php'">Report Form</button>
+                <button class="button-link" onclick="window.location.href='report_management/animalPopulationReport/animal_population_report_form.php'">Animal Population Report</button>
+                <button class="button-link" onclick="window.location.href='report_management/topAttractions/top_attractions_report_form.php'">Top Attractions Report</button>
+                <button class="button-link" onclick="window.location.href='report_management/averageRevenue/average_revenue_report_form.php'">Average Revenue Report</button>
+                <button class="button-link" onclick="window.location.href='report_management/bestDays/best_days_report_form.php'">Best Days Report</button>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

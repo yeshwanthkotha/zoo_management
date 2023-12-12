@@ -65,8 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
     <style>
         body {
-            background-image: url('background.jpg'); /* Set your background image */
-            background-size: cover;
             font-family: Arial, sans-serif;
             display: flex;
             align-items: center;
@@ -76,10 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         form {
-            background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add a box shadow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         label {
@@ -95,16 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         button {
-            background-color: #4caf50;
-            color: white;
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
         }
 
         p {
@@ -122,8 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="password" required><br>
 
         <button type="submit">Login</button>
-        <p>Don't have an account? <a href="register.php">Sign Up here</a>.</p>
+        <p><a href="register.php">Sign Up here</a>.</p>
     </form>
-    
 </body>
 </html>

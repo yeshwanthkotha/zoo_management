@@ -25,46 +25,31 @@ $result = $conn->query($sql);
 
         h2 {
             text-align: center;
-            color: #333;
-        }
-
-        a {
-            padding: 8px 15px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            margin: 5px;
         }
 
         table {
             width: 100%;
-            margin: 0 auto;
+            margin-top: 20px;
             border-collapse: collapse;
         }
 
         th, td {
             padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
         }
 
         th {
-            background-color: #3498db;
-            color: white;
+            background-color: #ddd;
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #eee;
         }
     </style>
 </head>
 <body>
     <h2>Building Management</h2>
 
-    <a href="create_building.php">Create New Building</a>
-
-    <!-- Display a paginated list of buildings with links to view, update, and delete -->
     <table>
         <tr>
             <th>Building ID</th>
@@ -79,7 +64,6 @@ $result = $conn->query($sql);
                 <td><?php echo htmlspecialchars($row['Name']); ?></td>
                 <td><?php echo htmlspecialchars($row['Type']); ?></td>
                 <td>
-                    <a href="view_building.php?id=<?php echo htmlspecialchars($row['ID']); ?>">View</a> 
                     <a href="update_building.php?id=<?php echo htmlspecialchars($row['ID']); ?>">Update</a> 
                     <?php if ($_SESSION['role'] === 'Admin'): ?>
                         <a href="delete_building.php?id=<?php echo htmlspecialchars($row['ID']); ?>">Delete</a>
@@ -90,3 +74,4 @@ $result = $conn->query($sql);
     </table>
 </body>
 </html>
+

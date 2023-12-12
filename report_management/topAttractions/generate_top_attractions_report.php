@@ -11,44 +11,33 @@ include '../includes/db_connection.php';
     <title>Top Attractions Report</title>
     <style>
         body {
+            background-color: #fff;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
             padding: 20px;
+            margin: 0;
         }
 
         h2 {
             text-align: center;
-            color: #333;
         }
 
         table {
+            border: 1px solid #000;
             width: 100%;
-            border-collapse: collapse;
             margin-top: 20px;
+            margin-bottom: 20px;
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        table th, table td {
+            padding: 10px;
             text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+            border: 1px solid #000;
         }
 
         a {
-            color: blue;
             text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            font-weight: bold;
+            margin-right: 20px;
         }
     </style>
 </head>
@@ -59,7 +48,7 @@ include '../includes/db_connection.php';
             $startDate = $_POST["startDate"];
             $endDate = $_POST["endDate"];
 
-            // Query to fetch top attractions
+            // Assuming the table is AnimalShowTickets
             $query = "SELECT 
                         AnimalShowID, 
                         SUM(Revenue) AS TotalRevenue
@@ -75,16 +64,23 @@ include '../includes/db_connection.php';
             $result = $stmt->get_result();
 
             // Display the report
-            echo "<h2>Top 3 Attractions from $startDate to $endDate</h2>";
+            echo "<h2>Top 3 Attractions for the period $startDate to $endDate</h2>";
 
+            // Check if there are rows in the result set
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>Attraction ID</th><th>Total Revenue</th></tr>";
+                echo "<table>";
+                echo "<tr><th>Attraction ID</th><th>Total Revenue</th></tr>";
+
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr><td>{$row['AnimalShowID']}</td><td>{$row['TotalRevenue']}</td></tr>";
+                    echo "<tr>";
+                    echo "<td>{$row['AnimalShowID']}</td>";
+                    echo "<td>{$row['TotalRevenue']}</td>";
+                    echo "</tr>";
                 }
+
                 echo "</table>";
             } else {
-                echo "<p>No data available for the selected period.</p>";
+                echo "<p>No data available for the selected time period.</p>";
             }
 
             echo "<a href='top_attractions_report_form.php'>Back to Report Form</a>";
@@ -92,10 +88,9 @@ include '../includes/db_connection.php';
             $stmt->close();
             $conn->close();
         } else {
-            echo "<p>No report generated. Please <a href='top_attractions_report_form.php'>return to the Report Form</a>.</p>";
+            echo "<p>No report generated. Please go back to the <a href='top_attractions_report_form.php'>Report Form</a>.</p>";
         }
         ?>
     </div>
 </body>
 </html>
-

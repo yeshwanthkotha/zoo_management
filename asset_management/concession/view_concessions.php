@@ -16,6 +16,45 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concessions Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: transparent;
+            border: 1px solid #333;
+            padding: 10px 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #eee;
+        }
+    </style>
 </head>
 <body>
     <h2>Concessions Management</h2>
@@ -37,7 +76,7 @@ $result = $conn->query($sql);
                 <td><?php echo $row['RevenueType']; ?></td>
                 <td><?php echo $row['Product']; ?></td>
                 <td>
-                    <a href="update_concession.php?id=<?php echo $row['ID']; ?>">Update</a> |
+                    <a href="update_concession.php?id=<?php echo $row['ID']; ?>">Update</a>
                     <?php if ($_SESSION['role'] === 'Admin') : ?>
                         <a href="delete_concession.php?id=<?php echo $row['ID']; ?>">Delete</a>
                     <?php endif; ?>

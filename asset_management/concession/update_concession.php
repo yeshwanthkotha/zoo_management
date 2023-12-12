@@ -48,6 +48,49 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Concession</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Update Concession</h2>
@@ -55,7 +98,7 @@ if (isset($_GET['id'])) {
     <!-- Concession update form -->
     <form method="post" action="">
         <label for="updatedProduct">Updated Product:</label>
-        <input type="text" name="updatedProduct" value="<?php echo $concession['Product']; ?>" required><br>
+        <input type="text" name="updatedProduct" value="<?php echo $concession['Product']; ?>" required>
 
         <button type="submit" name="updateConcession">Update Concession</button>
     </form>
@@ -63,3 +106,5 @@ if (isset($_GET['id'])) {
     <a href="view_concessions.php">Back to Concessions</a>
 </body>
 </html>
+
+

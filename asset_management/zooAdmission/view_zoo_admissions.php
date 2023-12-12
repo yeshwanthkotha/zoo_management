@@ -15,6 +15,36 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoo Admissions Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <h2>Zoo Admissions Management</h2>
@@ -22,7 +52,7 @@ $result = $conn->query($sql);
     <a href="create_zoo_admission.php">Create New Zoo Admission</a>
 
     <!-- Display a paginated list of zoo admissions with links to view, update, and delete -->
-    <table border="1">
+    <table>
         <tr>
             <th>Zoo Admission ID</th>
             <th>Revenue Type</th>
@@ -40,8 +70,7 @@ $result = $conn->query($sql);
                 <td><?php echo $row['AdultPrice']; ?></td>
                 <td><?php echo $row['ChildPrice']; ?></td>
                 <td>
-                    <a href="view_zoo_admission.php?id=<?php echo $row['ID']; ?>">View</a> |
-                    <a href="update_zoo_admission.php?id=<?php echo $row['ID']; ?>">Update</a> |
+                    <a href="update_zoo_admission.php?id=<?php echo $row['ID']; ?>">Update</a>
                     <?php if ($_SESSION['role'] === 'Admin') : ?>
                         <a href="delete_zoo_admission.php?id=<?php echo $row['ID']; ?>">Delete</a>
                     <?php endif; ?>
@@ -51,3 +80,4 @@ $result = $conn->query($sql);
     </table>
 </body>
 </html>
+

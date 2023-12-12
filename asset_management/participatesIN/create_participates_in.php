@@ -32,6 +32,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createParticipatesIn"]
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Participates In Relationship</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, input[type="number"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Create Participates In Relationship</h2>
@@ -43,17 +78,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createParticipatesIn"]
             <?php while ($species = $speciesResult->fetch_assoc()) : ?>
                 <option value="<?php echo $species['ID']; ?>"><?php echo $species['Name']; ?></option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="animalShowID">Animal Show ID:</label>
         <select name="animalShowID" required>
             <?php while ($animalShow = $animalShowResult->fetch_assoc()) : ?>
                 <option value="<?php echo $animalShow['ID']; ?>"><?php echo $animalShow['ID']; ?></option>
             <?php endwhile; ?>
-        </select><br>
+        </select>
 
         <label for="reqd">Required:</label>
-        <input type="number" name="reqd" required><br>
+        <input type="number" name="reqd" required>
 
         <button type="submit" name="createParticipatesIn">Create Relationship</button>
     </form>
@@ -61,3 +96,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["createParticipatesIn"]
     <a href="view_participates_in.php">Back to Participates In Relationships</a>
 </body>
 </html>
+

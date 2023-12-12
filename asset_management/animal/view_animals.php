@@ -75,7 +75,6 @@ $result = $conn->query($sql);
                 <td><?php echo isset($row['EnclosureID']) ? $row['EnclosureID'] : 'N/A'; ?></td>
                 <td><?php echo isset($row['BuildingName']) ? $row['BuildingName'] : 'N/A'; ?></td>
                 <td>
-                    <a href="view_animal.php?id=<?php echo $row['ID']; ?>">View</a> |
                     <a href="update_animal.php?id=<?php echo $row['ID']; ?>">Update</a> |
                     <?php if ($_SESSION['role'] === 'Admin') : ?>
                         <a href="delete_animal.php?id=<?php echo $row['ID']; ?>">Delete</a>

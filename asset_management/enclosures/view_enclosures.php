@@ -20,52 +20,48 @@ $result = $conn->query($sql);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
         }
 
         h2 {
             text-align: center;
-            color: #333;
         }
 
         a {
             display: block;
-            width: 200px;
-            margin: 10px auto; /* Reduced margin */
             padding: 10px 20px;
-            background-color: rgba(144, 238, 144, 0.3); /* Light transparent green */
-            color: #333;
             text-decoration: none;
-            border-radius: 5px;
+            border: 1px solid #333;
             text-align: center;
+            margin-top: 20px;
+            border-radius: 4px;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         table {
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
-            margin-bottom: 30px;
-            background-color: rgba(144, 238, 144, 0.3); /* Light transparent green */
         }
 
         th, td {
-            padding: 8px;
+            padding: 10px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #333;
         }
 
         th {
-            background-color: #3498db;
-            color: white;
+            background-color: #ddd;
         }
 
-        tr:hover {
-            background-color: #f5f5f5;
+        tr:nth-child(even) {
+            background-color: #eee;
         }
-
-
     </style>
 </head>
 <body>
@@ -73,8 +69,7 @@ $result = $conn->query($sql);
 
     <a href="create_enclosure.php">Create New Enclosure</a>
 
-    <!-- Display a paginated list of enclosures with links to view, update, and delete -->
-    <table border="1">
+    <table>
         <tr>
             <th>Enclosure ID</th>
             <th>SqFt</th>
@@ -88,20 +83,14 @@ $result = $conn->query($sql);
                 <td><?php echo $row['SqFt']; ?></td>
                 <td><?php echo $row['BuildingName']; ?></td>
                 <td>
-                    <a href="view_enclosure.php?id=<?php echo $row[
-                        'ID'
-                    ]; ?>">View</a> 
-                    <a href="update_enclosure.php?id=<?php echo $row[
-                        'ID'
-                    ]; ?>">Update</a> 
+                    <a href="update_enclosure.php?id=<?php echo $row['ID']; ?>">Update</a> 
                     <?php if ($_SESSION['role'] === 'Admin'): ?>
-                       <a href="delete_enclosure.php?id=<?php echo $row[
-                           'ID'
-                       ]; ?>">Delete</a>
-<?php endif; ?>
+                       <a href="delete_enclosure.php?id=<?php echo $row['ID']; ?>">Delete</a>
+                    <?php endif; ?>
                 </td>
             </tr>
         <?php endwhile; ?>
     </table>
 </body>
 </html>
+

@@ -36,6 +36,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateCaresFor"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Cares For Relationship</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Update Cares For Relationship</h2>
@@ -44,13 +79,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateCaresFor"])) {
     <form method="post" action="">
         <label for="newEmployeeID">New Employee:</label>
         <select name="newEmployeeID" required>
-            <!-- Fetch and display available employees in dropdown -->
-        </select><br>
+            <?php
+            // Fetch and display available employees in dropdown
+            $employeeSql = "SELECT EmployeeID, FirstName, LastName FROM Employee";
+            $employeeResult = $conn->query($employeeSql);
+            while ($employee = $employeeResult->fetch_assoc()) {
+                echo '<option value="' . $employee['EmployeeID'] . '">' . $employee['FirstName'] . ' ' . $employee['LastName'] . '</option>';
+            }
+            ?>
+        </select>
 
         <label for="newSpeciesID">New Species:</label>
         <select name="newSpeciesID" required>
-            <!-- Fetch and display available species in dropdown -->
-        </select><br>
+            <?php
+            // Fetch and display available species in dropdown
+            $speciesSql = "SELECT ID, Name FROM Species";
+            $speciesResult = $conn->query($speciesSql);
+            while ($species = $speciesResult->fetch_assoc()) {
+                echo '<option value="' . $species['ID'] . '">' . $species['Name'] . '</option>';
+            }
+            ?>
+        </select>
 
         <button type="submit" name="updateCaresFor">Update Relationship</button>
     </form>
@@ -58,3 +107,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateCaresFor"])) {
     <a href="view_cares_for.php">Back to Cares For Relationships</a>
 </body>
 </html>
+
+
